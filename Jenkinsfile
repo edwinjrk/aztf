@@ -11,11 +11,6 @@ node {
             acrSettings = new JsonSlurper().parseText(
                                             sh(script: "az acs show -o json -n my-acr", returnStdout: true))
         }
-        stage('Code checkout') { 
-            steps { 
-                git credentialsId: 'fb1b1145-229d-4610-b07f-6891c6cd4907', url: 'https://github.com/edwinjrk/aztf.git'
-            } 
-        }
 
         environment { 
             registry = "https://hub.docker.com/repository/docker/rkedwinjose/aztf"    

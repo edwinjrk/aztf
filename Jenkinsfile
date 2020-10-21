@@ -5,9 +5,16 @@ node {
     def acrSettings
 
 
-stage('test'){
-    
-}
+agent {
+        dockerfile true
+    } 
+    stage('Building our image') { 
+            steps { 
+                script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                }
+            } 
+        }
  
     
 }

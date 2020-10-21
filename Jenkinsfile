@@ -11,9 +11,7 @@ node {
             acrSettings = new JsonSlurper().parseText(
                                             sh(script: "az acs show -o json -n my-acr", returnStdout: true))
         }
-stage('test'){
-    
-}
+
  
     }
 }

@@ -12,7 +12,7 @@ node {
 
     stage('Building our image') { 
                  script { 
-                dockerImage = docker.build("rkedwinjose/aztf:$BUILD_NUMBER", **/Dockerfile)
+                dockerImage = docker.build("rkedwinjose/aztf:$BUILD_NUMBER", "./Dockerfile")
             }
         
     }

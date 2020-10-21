@@ -4,17 +4,19 @@ node {
     def container
     def acrSettings
 
+     environment { 
+        registry = "https://hub.docker.com/repository/docker/rkedwinjose/aztf"    
+        registryCredential = 'DockerHub'
+        dockerImage = ''
+    }
 
-agent {
-        dockerfile true
-    } 
     stage('Building our image') { 
-            steps { 
-                script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-                }
-            } 
-        }
+        steps { 
+            script { 
+                dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+            }
+        } 
+    }
  
     
 }
